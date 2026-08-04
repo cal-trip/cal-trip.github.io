@@ -20,8 +20,9 @@ sections.forEach((section) => observer.observe(section));
 const mapStops = {
   stanford: { day: 'DAY 1 · 10:00', kicker: 'START / FINISH', title: 'Stanford University', text: '8 月 12 日 10:00 出发；8 月 14 日约 19:45–20:30 返回。全程只有你一位驾驶者。', image: 'assets/bixby.jpg', query: 'Stanford University' },
   pigeon: { day: 'DAY 1 · 11:35', kicker: 'LIGHTHOUSE STOP', title: 'Pigeon Point', text: '30 分钟灯塔外景与轻松海岸观景。', image: 'assets/pigeon.jpg', query: 'Pigeon Point Lighthouse' },
-  santacruz: { day: 'DAY 1 · 13:45', kicker: 'WHARF STOP', title: 'Santa Cruz', text: 'Wharf、海滩和 Boardwalk 外景短停 45 分钟；14:30 硬性离开。', image: 'assets/santa-cruz.jpg', query: 'Santa Cruz Wharf' },
-  monterey: { day: 'DAY 1 · 15:30', kicker: 'MONTEREY COAST', title: 'Lovers Point · Monterey', text: 'Lovers Point、Cannery Row、晚餐与充电；晚间再前往第一晚酒店。', image: 'assets/lovers.jpg', query: 'Lovers Point Park' },
+  santacruz: { day: 'DAY 1 · 13:45', kicker: 'WHARF STOP', title: 'Santa Cruz', text: 'Wharf、海滩和 Boardwalk 外景短停 40 分钟；14:30 硬性离开。', image: 'assets/santa-cruz.jpg', query: 'Santa Cruz Wharf' },
+  monterey: { day: 'DAY 1 · 15:35', kicker: 'MONTEREY COAST', title: 'Lovers Point · Monterey', text: '25 分钟海岸观景；停车困难时直接略过，把时间留给 Carmel。', image: 'assets/lovers.jpg', query: 'Lovers Point Park' },
+  carmel: { day: 'DAY 1 · 16:45', kicker: 'MUST-SEE VILLAGE', title: 'Carmel-by-the-Sea', text: 'Ocean Avenue、童话庭院与小店；使用 Car Week 免费接驳，停一次、轻松逛，并在镇上吃晚餐。', image: 'assets/carmel.jpg', query: 'Carmel Plaza Carmel-by-the-Sea' },
   bigsur: { day: 'DAY 2 · 12:45', kicker: 'THE WILD COAST', title: 'Big Sur', text: 'Bixby、McWay 路边观景、Ragged Point 休息与象海豹观景。', image: 'assets/mcway.jpg', query: 'Big Sur California' },
   morro: { day: 'DAY 3 · 14:15', kicker: 'HARBOR STOP', title: 'Morro Bay', text: 'Embarcadero 港湾与 Morro Rock 轻松观景，15:20 硬性离开。', image: 'assets/morro.jpg', query: 'Morro Rock' },
   pismo: { day: 'NIGHT 2 + DAY 3', kicker: 'SOUTHERN TURNAROUND', title: 'Pismo Beach', text: '第二晚入住 Inn at the Pier；第三天睡到自然醒，早餐后看海。', image: 'assets/pismo.jpg', query: 'Pismo Beach Pier' },
