@@ -11,3 +11,4 @@
 - `garrapata.jpg` — Frank Schulenburg, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Garrapata_State_Park_Soberanes_Point_2019_2.jpg). Resized for web.
 - `pfeiffer.jpg` — Wikimedia Commons contributor, Creative Commons license, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pfeiffer_Beach_-_Keyhole_Arch_-_panoramio.jpg). Resized for web.
 - `moonstone.jpg` — Stilfehler, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cambria,_CA_20.jpg). Resized for web.
+- `santa-cruz.jpg` — ZappaOMati, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Santa_Cruz_Boardwalk_panorama_2017.jpg). Resized for web.

@@ -20,7 +20,8 @@ sections.forEach((section) => observer.observe(section));
 const mapStops = {
   stanford: { day: 'DAY 1 · 10:00', kicker: 'START / FINISH', title: 'Stanford University', text: '8 月 12 日 10:00 出发；8 月 14 日约 19:45–20:30 返回。全程只有你一位驾驶者。', image: 'assets/bixby.jpg', query: 'Stanford University' },
   pigeon: { day: 'DAY 1 · 11:35', kicker: 'LIGHTHOUSE STOP', title: 'Pigeon Point', text: '30 分钟灯塔外景与轻松海岸观景。', image: 'assets/pigeon.jpg', query: 'Pigeon Point Lighthouse' },
-  monterey: { day: 'DAY 1 · 15:10', kicker: 'MONTEREY COAST', title: 'Lovers Point · Monterey', text: 'Lovers Point、Cannery Row、晚餐与充电；晚上住 Salinas。', image: 'assets/lovers.jpg', query: 'Lovers Point Park' },
+  santacruz: { day: 'DAY 1 · 13:45', kicker: 'WHARF STOP', title: 'Santa Cruz', text: 'Wharf、海滩和 Boardwalk 外景短停 45 分钟；14:30 硬性离开。', image: 'assets/santa-cruz.jpg', query: 'Santa Cruz Wharf' },
+  monterey: { day: 'DAY 1 · 15:30', kicker: 'MONTEREY COAST', title: 'Lovers Point · Monterey', text: 'Lovers Point、Cannery Row、晚餐与充电；晚间再前往第一晚酒店。', image: 'assets/lovers.jpg', query: 'Lovers Point Park' },
   bigsur: { day: 'DAY 2 · 12:45', kicker: 'THE WILD COAST', title: 'Big Sur', text: 'Bixby、McWay 路边观景、Ragged Point 休息与象海豹观景。', image: 'assets/mcway.jpg', query: 'Big Sur California' },
   morro: { day: 'DAY 3 · 14:15', kicker: 'HARBOR STOP', title: 'Morro Bay', text: 'Embarcadero 港湾与 Morro Rock 轻松观景，15:20 硬性离开。', image: 'assets/morro.jpg', query: 'Morro Rock' },
   pismo: { day: 'NIGHT 2 + DAY 3', kicker: 'SOUTHERN TURNAROUND', title: 'Pismo Beach', text: '第二晚入住 Inn at the Pier；第三天睡到自然醒，早餐后看海。', image: 'assets/pismo.jpg', query: 'Pismo Beach Pier' },
@@ -64,21 +65,31 @@ document.querySelectorAll('.map-pin').forEach((pin) => {
   });
 });
 
-const floatingPreview = document.createElement('figure');
-floatingPreview.className = 'hover-preview';
-floatingPreview.setAttribute('aria-hidden', 'true');
-floatingPreview.innerHTML = '<img alt=""><figcaption></figcaption>';
-document.body.append(floatingPreview);
-
 const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
-const previewImage = floatingPreview.querySelector('img');
-const previewCaption = floatingPreview.querySelector('figcaption');
+const stageTimers = new WeakMap();
 
-function positionPreview(x, y) {
-  const width = 340;
-  const height = 250;
-  floatingPreview.style.left = `${Math.min(x + 24, window.innerWidth - width - 18)}px`;
-  floatingPreview.style.top = `${Math.min(Math.max(y - 80, 18), window.innerHeight - height - 18)}px`;
+function updateVisualStage(item) {
+  if (!canHover.matches) return;
+  const day = item.closest('.day-section');
+  const stage = day?.querySelector('[data-visual-stage]');
+  if (!stage) return;
+  const label = item.dataset.previewLabel || item.querySelector('h3')?.textContent || '景点照片';
+  const time = item.querySelector('time')?.textContent.trim() || '';
+  const kicker = item.querySelector('.eyeline')?.textContent.trim() || 'SCENIC STOP';
+  const description = item.querySelector('p:not(.eyeline)')?.textContent.trim() || '';
+  const image = stage.querySelector('img');
+  const caption = stage.querySelector('figcaption');
+  day.querySelectorAll('.timeline-item').forEach((entry) => entry.classList.toggle('is-stage-active', entry === item));
+  window.clearTimeout(stageTimers.get(stage));
+  stage.classList.add('switching');
+  stageTimers.set(stage, window.setTimeout(() => {
+    image.src = item.dataset.preview;
+    image.alt = label;
+    caption.querySelector('p').textContent = `${time} · ${kicker}`;
+    caption.querySelector('h3').textContent = label;
+    caption.querySelector('span').textContent = description;
+    stage.classList.remove('switching');
+  }, 110));
 }
 
 document.querySelectorAll('.timeline-item[data-preview]').forEach((item) => {
@@ -86,7 +97,7 @@ document.querySelectorAll('.timeline-item[data-preview]').forEach((item) => {
   const label = item.dataset.previewLabel || item.querySelector('h3')?.textContent || '景点照片';
   const hint = document.createElement('span');
   hint.className = 'preview-hint';
-  hint.textContent = canHover.matches ? '悬停看图 ↗' : '点击看图 ＋';
+  hint.textContent = canHover.matches ? '悬停切换右侧大图 →' : '点击展开大图 ＋';
   item.querySelector(':scope > div')?.append(hint);
 
   const inline = document.createElement('figure');
@@ -94,19 +105,8 @@ document.querySelectorAll('.timeline-item[data-preview]').forEach((item) => {
   inline.innerHTML = `<img src="${item.dataset.preview}" alt="${label}" loading="lazy"><figcaption>${label}</figcaption>`;
   item.querySelector(':scope > div')?.append(inline);
 
-  const show = (event) => {
-    if (!canHover.matches) return;
-    previewImage.src = item.dataset.preview;
-    previewImage.alt = label;
-    previewCaption.textContent = label;
-    positionPreview(event.clientX || item.getBoundingClientRect().right, event.clientY || item.getBoundingClientRect().top + 60);
-    floatingPreview.classList.add('visible');
-  };
-  item.addEventListener('mouseenter', show);
-  item.addEventListener('mousemove', (event) => canHover.matches && positionPreview(event.clientX, event.clientY));
-  item.addEventListener('mouseleave', () => floatingPreview.classList.remove('visible'));
-  item.addEventListener('focus', show);
-  item.addEventListener('blur', () => floatingPreview.classList.remove('visible'));
+  item.addEventListener('mouseenter', () => updateVisualStage(item));
+  item.addEventListener('focus', () => updateVisualStage(item));
   item.addEventListener('click', (event) => {
     if (canHover.matches || event.target.closest('a')) return;
     document.querySelectorAll('.timeline-item.is-preview-open').forEach((openItem) => {
