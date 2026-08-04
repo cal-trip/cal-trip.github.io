@@ -13,3 +13,4 @@
 - `moonstone.jpg` — Stilfehler, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cambria,_CA_20.jpg). Resized for web.
 - `santa-cruz.jpg` — ZappaOMati, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Santa_Cruz_Boardwalk_panorama_2017.jpg). Resized for web.
 - `carmel.jpg` — Fred Hsu, CC BY-SA 3.0 / GFDL, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Carmel_by_the_Sea_Ocean_Ave_Shopping_1.jpg). Resized for web.
+- `hearst-castle.jpg` — Proimos, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hearst_Castle.jpg). Resized for web.

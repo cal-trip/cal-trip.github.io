@@ -24,9 +24,9 @@ const mapStops = {
   monterey: { day: 'DAY 1 · 15:35', kicker: 'MONTEREY COAST', title: 'Lovers Point · Monterey', text: '25 分钟海岸观景；停车困难时直接略过，把时间留给 Carmel。', image: 'assets/lovers.jpg', query: 'Lovers Point Park' },
   carmel: { day: 'DAY 1 · 16:45', kicker: 'MUST-SEE VILLAGE', title: 'Carmel-by-the-Sea', text: 'Ocean Avenue、童话庭院与小店；使用 Car Week 免费接驳，停一次、轻松逛，并在镇上吃晚餐。', image: 'assets/carmel.jpg', query: 'Carmel Plaza Carmel-by-the-Sea' },
   bigsur: { day: 'DAY 2 · 12:45', kicker: 'THE WILD COAST', title: 'Big Sur', text: 'Bixby、McWay 路边观景、Ragged Point 休息与象海豹观景。', image: 'assets/mcway.jpg', query: 'Big Sur California' },
-  morro: { day: 'DAY 3 · 14:15', kicker: 'HARBOR STOP', title: 'Morro Bay', text: 'Embarcadero 港湾与 Morro Rock 轻松观景，15:20 硬性离开。', image: 'assets/morro.jpg', query: 'Morro Rock' },
-  pismo: { day: 'NIGHT 2 + DAY 3', kicker: 'SOUTHERN TURNAROUND', title: 'Pismo Beach', text: '第二晚入住 Inn at the Pier；第三天睡到自然醒，早餐后看海。', image: 'assets/pismo.jpg', query: 'Pismo Beach Pier' },
-  paso: { day: 'DAY 3 · 16:05', kicker: 'FINAL CHARGE', title: 'Paso Robles', text: 'Golden Hill Road Supercharger 补电 20–25 分钟，然后沿 US-101 北返。', image: 'assets/morro.jpg', query: 'Tesla Supercharger 2421 Golden Hill Road Paso Robles' }
+  hearst: { day: 'DAY 3 · 12:00', kicker: 'ARCHITECTURE & ART', title: 'Hearst Castle', text: 'Grand Rooms Tour：提前20分钟报到，连同上下山接驳共预留约两小时；结束后经CA-46前往Paso。', image: 'assets/hearst-castle.jpg', query: 'Hearst Castle Visitor Center' },
+  pismo: { day: 'NIGHT 2 + DAY 3', kicker: 'SOUTHERN TURNAROUND', title: 'Pismo Beach', text: '第二晚入住 Inn at the Pier；第三天早餐后10:20出发，北上前往Hearst Castle。', image: 'assets/pismo.jpg', query: 'Pismo Beach Pier' },
+  paso: { day: 'DAY 3 · 15:35', kicker: 'FINAL CHARGE', title: 'Paso Robles', text: 'Golden Hill Road Supercharger 补电20–25分钟，然后沿US-101北返。', image: 'assets/hearst-castle.jpg', query: 'Tesla Supercharger 2421 Golden Hill Road Paso Robles' }
 };
 
 const mapDetail = {
