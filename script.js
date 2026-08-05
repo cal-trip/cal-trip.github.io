@@ -18,15 +18,13 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach((section) => observer.observe(section));
 
 const mapStops = {
-  stanford: { day: 'DAY 1 · 10:00', kicker: 'START / FINISH', title: 'Stanford University', text: '8 月 12 日 10:00 出发；8 月 14 日约 19:45–20:30 返回。全程只有你一位驾驶者。', image: 'assets/bixby.jpg', query: 'Stanford University' },
-  pigeon: { day: 'DAY 1 · 11:35', kicker: 'LIGHTHOUSE STOP', title: 'Pigeon Point', text: '30 分钟灯塔外景与轻松海岸观景。', image: 'assets/pigeon.jpg', query: 'Pigeon Point Lighthouse' },
-  santacruz: { day: 'DAY 1 · 13:45', kicker: 'WHARF STOP', title: 'Santa Cruz', text: 'Wharf、海滩和 Boardwalk 外景短停 40 分钟；14:30 硬性离开。', image: 'assets/santa-cruz.jpg', query: 'Santa Cruz Wharf' },
-  monterey: { day: 'DAY 1 · 15:35', kicker: 'MONTEREY COAST', title: 'Lovers Point · Monterey', text: '25 分钟海岸观景；停车困难时直接略过，把时间留给 Carmel。', image: 'assets/lovers.jpg', query: 'Lovers Point Park' },
-  carmel: { day: 'DAY 1 · 16:45', kicker: 'MUST-SEE VILLAGE', title: 'Carmel-by-the-Sea', text: 'Ocean Avenue、童话庭院与小店；使用 Car Week 免费接驳，停一次、轻松逛，并在镇上吃晚餐。', image: 'assets/carmel.jpg', query: 'Carmel Plaza Carmel-by-the-Sea' },
-  bigsur: { day: 'DAY 2 · 12:45', kicker: 'THE WILD COAST', title: 'Big Sur', text: 'Bixby、McWay 路边观景、Ragged Point 休息与象海豹观景。', image: 'assets/mcway.jpg', query: 'Big Sur California' },
+  santaclara: { day: 'DAY 1 · 16:30', kicker: 'START / FINISH', title: 'Santa Clara', text: '8月12日16:30出发；8月14日约19:30–20:30返回。全程只有你一位驾驶者。', image: 'assets/bixby.jpg', query: 'Santa Clara California' },
+  monterey: { day: 'DAY 1 · 18:35', kicker: 'MONTEREY SUNSET', title: 'Lovers Point · Monterey', text: '第一天唯一风景主站：看海与日落前金色光线，之后在Monterey补电并吃晚饭。', image: 'assets/lovers.jpg', query: 'Lovers Point Park' },
+  carmel: { day: 'DAY 2 · 10:55', kicker: 'MUST-SEE VILLAGE', title: 'Carmel-by-the-Sea', text: '利用Car Week免费接驳，停一次逛Ocean Avenue、童话庭院与小店，并在镇上完成午餐；共保留约2.5小时。', image: 'assets/carmel.jpg', query: 'Carmel Plaza Carmel-by-the-Sea' },
+  bigsur: { day: 'DAY 2 · 14:15', kicker: 'THE WILD COAST', title: 'Big Sur', text: 'Carmel之后只保留Bixby、McWay路边观景与象海豹；删除重复餐停和耗时支线。', image: 'assets/mcway.jpg', query: 'Big Sur California' },
   hearst: { day: 'DAY 3 · 12:00', kicker: 'ARCHITECTURE & ART', title: 'Hearst Castle', text: 'Grand Rooms Tour：提前20分钟报到，连同上下山接驳共预留约两小时；结束后经CA-46前往Paso。', image: 'assets/hearst-castle.jpg', query: 'Hearst Castle Visitor Center' },
   pismo: { day: 'NIGHT 2 + DAY 3', kicker: 'SOUTHERN TURNAROUND', title: 'Pismo Beach', text: '第二晚入住 Inn at the Pier；第三天早餐后10:20出发，北上前往Hearst Castle。', image: 'assets/pismo.jpg', query: 'Pismo Beach Pier' },
-  paso: { day: 'DAY 3 · 15:35', kicker: 'FINAL CHARGE', title: 'Paso Robles', text: 'Golden Hill Road Supercharger 补电20–25分钟，然后沿US-101北返。', image: 'assets/hearst-castle.jpg', query: 'Tesla Supercharger 2421 Golden Hill Road Paso Robles' }
+  paso: { day: 'DAY 3 · 15:35', kicker: 'FINAL CHARGE', title: 'Paso Robles', text: 'Golden Hill Road Supercharger补电20–25分钟，然后沿US-101北返Santa Clara。', image: 'assets/hearst-castle.jpg', query: 'Tesla Supercharger 2421 Golden Hill Road Paso Robles' }
 };
 
 const mapDetail = {
